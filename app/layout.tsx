@@ -1,13 +1,16 @@
-import '../styles/globals.css';
+import "../styles/globals.css";
+import { ContextProvider } from "src/infraestructure/repository/context.repository";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+    <ContextProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ContextProvider>
+  );
 }

@@ -1,6 +1,7 @@
 import { CounterUseCase } from "src/application/counterUseCase";
 import { CounterController } from "../controller/counter.controller";
-import { Store } from "../repository/store.repository";
+//import { Store } from "../repository/store.repository";
+import { Store } from "../repository/context.repository";
 
 // Iniciar el repositorio deseado (el cual es cambiable)
 const counterRepo = new Store();

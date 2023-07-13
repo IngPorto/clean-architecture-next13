@@ -4,17 +4,21 @@
 import { CounterUseCase } from "src/application/counterUseCase";
 
 export class CounterController {
-  constructor(private readonly counterUseCase: CounterUseCase) {}
+  counterUseCase: CounterUseCase;
 
-  public getCounter(req: any, res: any) {
-    res.send(this.counterUseCase.getCounter());
-  }
-  public increase(req: any, res: any) {
-    this.counterUseCase.increase(req.query.counter);
+  constructor(private readonly counterUseCaseDep: CounterUseCase) {
+    this.counterUseCase = counterUseCaseDep;
   }
 
-  public decrement(req: any, res: any) {
-    this.counterUseCase.decrement(req.query.counter);
+  public getCounter() {
+    return this.counterUseCase.getCounter();
+  }
+  public increase() {
+    console.log(this);
+    //this.counterUseCase.increase({ value: 1 });
   }
 
+  public decrement() {
+    this.counterUseCase.decrement({ value: -1 });
+  }
 }
